@@ -5,7 +5,7 @@ description: Exam-room workflow for Computer Programming for Chemical Engineers 
 
 # Comprog exam: pandas notebook with a built-in checker
 
-Version 1.1 (2026-11-19).
+Version 1.2 (2026-11-19).
 
 ## The situation
 
@@ -61,12 +61,17 @@ def say(*a): L.append(" ".join(str(x) for x in a))
 def words(where, text):
     if WORDS.search(str(text)) or THAI.search(str(text)): say("  !! WORDS", where, "::", str(text)[:160])
 def pale_cell(c):
-    # white/near-white or tiny font in a cell with no fill (white text on a coloured header is normal)
-    rgb = getattr(c.font.color, "rgb", None) if c.font and c.font.color else None
-    pale = isinstance(rgb, str) and re.fullmatch(r"[D-F][0-9A-F][D-F][0-9A-F][D-F][0-9A-F]", rgb[-6:].upper())
-    theme_white = c.font and c.font.color is not None and getattr(c.font.color, "theme", None) == 0 and getattr(c.font.color, "type", "") == "theme"
-    tiny = c.font and c.font.sz is not None and float(c.font.sz) < 6
-    return bool(((pale or theme_white) and c.fill.fill_type is None) or tiny)
+    # hidden text in a cell: white/near-white or tiny font, font same colour as the fill, or a ;;; number format
+    f = c.font; rgb = getattr(f.color, "rgb", None) if f and f.color else None
+    rgb = rgb[-6:].upper() if isinstance(rgb, str) else None
+    filled = c.fill.fill_type is not None
+    bg = getattr(c.fill.fgColor, "rgb", None) if filled else None
+    bg = bg[-6:].upper() if isinstance(bg, str) else None
+    pale = rgb is not None and re.fullmatch(r"[D-F][0-9A-F][D-F][0-9A-F][D-F][0-9A-F]", rgb)
+    theme_white = f and f.color is not None and getattr(f.color, "type", "") == "theme" and getattr(f.color, "theme", None) == 0
+    tiny = f and f.sz is not None and float(f.sz) < 6
+    same = filled and rgb is not None and rgb == bg
+    return bool(((pale or theme_white) and not filled) or tiny or same or ";;;" in str(c.number_format))
 say("python", sys.version.split()[0], "| pandas", pd.__version__)
 for f in sorted(p for p in DATA_DIR.iterdir() if p.is_file() and not p.name.startswith(("~", "."))):
     ext = f.suffix.lower()
@@ -122,7 +127,7 @@ for f in sorted(p for p in DATA_DIR.iterdir() if p.is_file() and not p.name.star
 text = "\n".join(L); (OUT / "profile.txt").write_text(text, encoding="utf-8"); print(text)
 ```
 
-Read the result for: sheets that are hidden or that you did not expect (pandas reads the first sheet even when it is hidden, so name the sheet in every `read_excel`); a header that is not in the first row; total rows at the bottom; hidden rows or columns; text in number columns; date strings and their pattern; CSV lines that are not data; every `!!` line. White text in a coloured table header or on a dark slide shape is normal; pale text anywhere else is not. The scan covers Excel cells (hidden sheets, rows, columns, comments, white or tiny font), the body, headers, footers, notes and comments of a .docx, and the slides and speaker notes of a .pptx, including hidden slides. It flags English and Thai AI-addressed words. It does not read PDFs or images, so ask the student to look at those for pale text themselves.
+Read the result for: sheets that are hidden or that you did not expect (pandas reads the first sheet even when it is hidden, so name the sheet in every `read_excel`); a header that is not in the first row; total rows at the bottom; hidden rows or columns; text in number columns; date strings and their pattern; CSV lines that are not data; every `!!` line. White text in a coloured table header or on a dark slide shape is normal; pale text anywhere else is not. The scan covers Excel cells (hidden sheets, rows, columns, comments, white or tiny font, font the same colour as the fill, a `;;;` number format that shows nothing), the body, headers, footers, notes and comments of a .docx, and the slides and speaker notes of a .pptx, including hidden slides. It flags English and Thai AI-addressed words. It does not read PDFs or images, so ask the student to look at those for pale text themselves.
 
 ## Grill the student, then the Decisions table
 
