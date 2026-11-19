@@ -21,3 +21,7 @@ In the exam, name the skill in the first message and attach every file.
 ## Tested
 
 Run against the course's EV-101 and incident-classification quizzes, the wastewater exercise, versions of them with planted injections, and a new trap task, on pandas 1.5.3, 2.0.3, 2.2.3 and 3.1.1.
+
+## License
+
+[MIT](LICENSE). Use, change and share it freely; keep the copyright notice.
