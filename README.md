@@ -1,6 +1,6 @@
 # comprog-python-data-exam
 
-A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and Jupyter on Excel/CSV plant data). Current version: **1.2**.
+A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and Jupyter on Excel/CSV plant data). Current version: **1.3**.
 
 In the exam chat the skill makes Claude:
 
@@ -10,7 +10,7 @@ In the exam chat the skill makes Claude:
 4. Check the answers by an independent second route (plus subagents when the chat has them), run a fix loop until every check passes (at most 5 rounds), and end with a doubt list.
 5. Label every stage in the course's terms (Prompt Level L1 to L5, Agentic Level A1 to A4), since the chat itself is graded.
 
-The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Ready-made exam prompts (Level 5) are in [`PROMPT.md`](PROMPT.md). A timed practice task with planted traps and an answer key is in [`mock-exam/`](mock-exam).
+The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Ready-made exam prompts (Level 5) are in [`PROMPT.md`](PROMPT.md). Four timed practice tasks, one per exam task type, with planted traps and answer keys are in [`mock-exams/`](mock-exams).
 
 ## Install
 
@@ -22,7 +22,7 @@ Your copy does not update itself. When the version above changes, download again
 ## Exam-day checklist
 
 - [ ] The skill is uploaded and switched on in the account you will use in the exam.
-- [ ] You did one timed practice run with the exam model (Sonnet) on the [mock exam](mock-exam).
+- [ ] You did one timed practice run with the exam model (Sonnet) on one of the [mock exams](mock-exams).
 - [ ] `import openpyxl` works in Jupyter on the exam laptop.
 - [ ] Prompt 1 from `PROMPT.md` is ready to fill in.
 - [ ] In the exam: attach every file, name the skill in the first message, answer the decision questions with reasons.
@@ -34,6 +34,7 @@ Run against the course's EV-101 and incident-classification quizzes, the wastewa
 
 ## Changelog
 
+- **1.3** (2026-11-19): three more mock exams (historian cleaning, work-order triage, mass balance with logbook), each key confirmed by a second solution; mocks moved to `mock-exams/`.
 - **1.2** (2026-11-19): scan also catches Excel text hidden by a `;;;` number format or by a font the same colour as the fill; mock exam with 14 traps, answer key and checker.
 - **1.1** (2026-11-19): scan catches white or tiny text in Excel cells, scans PowerPoint slides, notes and hidden slides, and flags Thai AI-addressed words; fix loop with stop condition, 5-round cap and status lines; stage labels and level summary for the graded chat; `PROMPT.md` with Level 5 prompts.
 - **1.0** (2026-11-16): first release.

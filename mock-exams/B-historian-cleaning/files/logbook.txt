@@ -1,0 +1,10 @@
+C-201 SHIFT LOGBOOK  6-8 Oct 2026   (all times are plant local time, UTC+07:00)
+2026-10-06 07:00  Day shift. Column steady on full feed.
+2026-10-06 21:35  TI-201 reading not changing. Instrument technician called.
+2026-10-06 23:45  TI-201 transmitter replaced. Reading live again.
+2026-10-07 04:55  Historian collector was down from about 04:10. No data for that time; it will not be refilled.
+2026-10-07 13:20  Column tripped on high pressure (PI-201). Restarted, back in Run at 14:05.
+2026-10-07 17:05  Historian buffer replayed after a network fault. Some rows may be exported twice.
+2026-10-08 05:00  Planned shutdown for work on the reflux drum level gauge. Back in Run at 09:00.
+2026-10-08 10:00  Historian tag PI201 reconfigured. Exports from today give it in bar.
+2026-10-08 16:00  QA reviewed the TI-201 readings of the night of 6 Oct. They are valid and stay in the statistics.
