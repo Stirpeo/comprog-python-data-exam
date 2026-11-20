@@ -1,0 +1,12 @@
+Model,Train_R2,Test_R2,Test_RMSE,Test_MAE,Test_MAPE_pct
+Linear,,,,,
+Poly2,,,,,
+Poly3,,,,,
+Poly4,,,,,
+Power,,,,,
+Exponential,,,,,
+Logarithmic,,,,,
+Ridge,,,,,
+Lasso,,,,,
+kNN,,,,,
+RandomForest,,,,,

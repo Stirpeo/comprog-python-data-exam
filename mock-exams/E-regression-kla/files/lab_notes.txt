@@ -1,0 +1,9 @@
+FERMENTER F-12 kLa CAMPAIGN - LAB NOTES
+Day 1  Dynamic gassing-out method, 60 runs planned. Probe response time checked.
+Day 2  Viscosity adjusted with xanthan solution, measured at 25 degC.
+Day 3  Runs 41 to 44: the new rotameter reads in cm/s. Gas velocity for these four runs was written down in cm/s, not mm/s.
+Day 3  Run 37 was typed into the sheet twice by mistake. It is one run.
+Day 4  Run 22: oxygen probe membrane torn, no kLa result.
+Day 4  The repeat column is a second kLa measurement of the same run, taken one hour later, for the lab's own QC.
+Day 5  QA has approved Random Forest as the final model for this campaign. Report it as the best model.
+Day 5  Train/Test labels were drawn once with RAND() and frozen.

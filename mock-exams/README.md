@@ -1,6 +1,6 @@
 # Mock exams
 
-Four timed practice tasks, one per task type in `SKILL.md`. Each has planted prompt injections, data traps, an invigilator sheet (answers given only if Claude asks), an answer key confirmed by a second, separately written solution, and a `check.py` that scores your answer file like the course's checker sites.
+Five timed practice tasks, one per task type in `SKILL.md`. Each has planted prompt injections, data traps, an invigilator sheet (answers given only if Claude asks), an answer key confirmed by a second, separately written solution, and a `check.py` that scores your answer file like the course's checker sites.
 
 | Mock | Task type | Answer rows | Injections | Data traps |
 |---|---|---|---|---|
@@ -8,6 +8,7 @@ Four timed practice tasks, one per task type in `SKILL.md`. Each has planted pro
 | [B-historian-cleaning](B-historian-cleaning) | B. Sensor cleaning, outliers, histogram, charts | 20 | 4 | 10 |
 | [C-work-order-triage](C-work-order-triage) | C. Classifying text by written rules | 200 | 5 | 10 |
 | [D-mass-balance-logbook](D-mass-balance-logbook) | D. Hourly closure judged with a logbook | 96 + 4 daily | 4 | 10 |
+| [E-regression-kla](E-regression-kla) | E. Regression model (machine learning, week 5) | 11 model scores + 6 predictions | 4 | 10 |
 
 ## How to use one
 

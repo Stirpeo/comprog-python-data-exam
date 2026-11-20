@@ -1,6 +1,6 @@
 # comprog-python-data-exam
 
-A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and NumPy in Jupyter or VS Code, on Excel/CSV plant data). Current version: **1.4**.
+A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and NumPy in Jupyter or VS Code, on Excel/CSV plant data). Current version: **1.5**.
 
 In the exam chat the skill makes Claude:
 
@@ -8,9 +8,10 @@ In the exam chat the skill makes Claude:
 2. Ask a short round of questions on the decisions the files do not settle, the missing limit first, and agree a Decisions table.
 3. Write the code as a notebook (`.ipynb`), a VS Code Python file with `# %%` cells, or both. It runs on pandas 1.5 to 3.x and writes the answer files itself.
 4. Check the answers by an independent second route (plus subagents when the chat has them), run a fix loop until every check passes (at most 5 rounds), and end with a doubt list.
-5. Label every stage in the course's terms (Prompt Level L1 to L5, Agentic Level A1 to A4), since the chat itself is graded.
+5. For a machine-learning task (week 5): follow the course's three steps (Model Selection & Tuning, Final Training, Deployment) with scikit-learn, with no test rows used for fitting, and flag new conditions outside the training range.
+6. Label every stage in the course's terms (Prompt Level L1 to L5, Agentic Level A1 to A4), since the chat itself is graded.
 
-The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Ready-made exam prompts (Level 5) are in [`PROMPT.md`](PROMPT.md). Four timed practice tasks, one per exam task type, with planted traps and answer keys are in [`mock-exams/`](mock-exams).
+The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Ready-made exam prompts (Level 5) are in [`PROMPT.md`](PROMPT.md). Five timed practice tasks, one per exam task type, with planted traps and answer keys are in [`mock-exams/`](mock-exams).
 
 ## Install
 
@@ -23,10 +24,12 @@ Your copy does not update itself. When the version above changes, download again
 
 - [ ] The skill is uploaded and switched on in the account you will use in the exam.
 - [ ] You did one timed practice run with the exam model (Sonnet) on one of the [mock exams](mock-exams).
-- [ ] In VS Code on the exam laptop: the Python and Jupyter extensions are installed, a kernel is selected, and `import pandas, numpy, openpyxl, matplotlib` runs in a cell.
+- [ ] In VS Code on the exam laptop: the Python and Jupyter extensions are installed, a kernel is selected, and `import pandas, numpy, openpyxl, matplotlib, sklearn` runs in a cell.
 - [ ] You know the hand-in format (`.ipynb`, `.py` or both) and whether NumPy must be used.
 - [ ] Prompt 1 from `PROMPT.md` is ready to fill in.
-- [ ] In the exam: attach every file, name the skill in the first message, answer the decision questions with reasons.
+- [ ] In the exam: attach every file, name the skill in the first message, end it with "Tell me the model we are using and the current time.", and screenshot your prompt with Sonnet visible.
+- [ ] Answer the decision questions with reasons; ask the invigilator about MUST ANSWER questions.
+- [ ] You know whether a review in a second chat is allowed, and how many chat links you hand in.
 - [ ] Hand in the notebook (after Restart and Run All, saved), the answer files and the chat link.
 
 ## Tested
@@ -38,6 +41,7 @@ Your copy does not update itself. When the version above changes, download again
 
 ## Changelog
 
+- **1.5** (2026-11-20): week 5 added. New task type E (regression with scikit-learn: train-test split, scores, tuning, final training, prediction); exam rules from the slides (model-and-time line, prompt screenshot, Sonnet only); the teacher's notebook style (one step per cell, line-by-line comments when asked); a reviewer prompt for a second chat; mock exam E.
 - **1.4** (2026-11-20): questions come in two kinds, and MUST ANSWER ones (missing limit, `<5`, duplicates that disagree, clock windows) carry no recommendation; VS Code support (`.py` with `# %%` cells, Data Viewer, NumPy notes); the scan hints at lines that set a result; the date helper handles `24:00`; warnings for the `g/L` in `mg/L` trap and for float noise after unit conversion; contradictions removed. Skill code re-tested on pandas 1.5.3, 2.0.3, 2.2.3 and 3.0.5.
 - **1.3** (2026-11-19): three more mock exams (historian cleaning, work-order triage, mass balance with logbook), each key confirmed by a second solution; mocks moved to `mock-exams/`.
 - **1.2** (2026-11-19): scan also catches Excel text hidden by a `;;;` number format or by a font the same colour as the fill; mock exam with 14 traps, answer key and checker.
