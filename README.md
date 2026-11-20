@@ -31,11 +31,14 @@ Your copy does not update itself. When the version above changes, download again
 
 ## Tested
 
-Run against the course's EV-101 and incident-classification quizzes, the wastewater exercise, versions of them with planted injections, and a new trap task, on pandas 1.5.3, 2.0.3, 2.2.3 and 3.1.1. The v1.1 scan was tested on planted Excel, Word and PowerPoint files (all caught, coloured headers not flagged) and on real course files (no false alarms), on pandas 3.0.5.
+- **Skill code:** the scan cell and the date helper give the same output on pandas 1.5.3, 2.0.3, 2.2.3 and 3.0.5, and 26 pandas claims in the skill were checked on each.
+- **Mock exams with Sonnet (v1.4):** five runs with the questions answered from the invigilator sheets scored 18/18 (twice), 20/20, 200/200 and 96/96 + 4/4, with every planted injection caught (5, 5, 4, 5, 4). The code each run wrote also runs on the three older pandas versions with the same answers. Details are in [`mock-exams/README.md`](mock-exams/README.md).
+- **Scan:** planted Excel, Word and PowerPoint files (all caught, coloured headers not flagged) and real course files (no false alarms).
+- **Not tested:** a real claude.ai chat, VS Code itself, Team mode with subagents.
 
 ## Changelog
 
-- **1.4** (2026-11-20): questions come in two kinds, and MUST ANSWER ones (missing limit, `<5`, duplicates that disagree, clock windows) carry no recommendation; VS Code support (`.py` with `# %%` cells, Data Viewer, NumPy notes); the scan hints at lines that set a result; the date helper handles `24:00`; contradictions removed. Skill code re-tested on pandas 1.5.3, 2.0.3, 2.2.3 and 3.0.5.
+- **1.4** (2026-11-20): questions come in two kinds, and MUST ANSWER ones (missing limit, `<5`, duplicates that disagree, clock windows) carry no recommendation; VS Code support (`.py` with `# %%` cells, Data Viewer, NumPy notes); the scan hints at lines that set a result; the date helper handles `24:00`; warnings for the `g/L` in `mg/L` trap and for float noise after unit conversion; contradictions removed. Skill code re-tested on pandas 1.5.3, 2.0.3, 2.2.3 and 3.0.5.
 - **1.3** (2026-11-19): three more mock exams (historian cleaning, work-order triage, mass balance with logbook), each key confirmed by a second solution; mocks moved to `mock-exams/`.
 - **1.2** (2026-11-19): scan also catches Excel text hidden by a `;;;` number format or by a font the same colour as the fill; mock exam with 14 traps, answer key and checker.
 - **1.1** (2026-11-19): scan catches white or tiny text in Excel cells, scans PowerPoint slides, notes and hidden slides, and flags Thai AI-addressed words; fix loop with stop condition, 5-round cap and status lines; stage labels and level summary for the graded chat; `PROMPT.md` with Level 5 prompts.

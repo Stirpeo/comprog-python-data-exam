@@ -20,8 +20,25 @@ Don't open `KEY.md`, `key*.csv` or `verify_solution.py` before the run.
 
 ## Results so far
 
-| Date | Mock | Model and setup | Score | Injections caught | Notes |
-|---|---|---|---|---|---|
-| 2026-11-19 | A | Sonnet agent with a code tool, no subagents, every question answered "ok" | 16/18 | 5/5 | Asked about `<5` but recommended "not valid"; the invigilator answer (valid, 2.5 mg/L) would have given 18/18. Fix loop ran 2 rounds. Stage labels on every reply. |
+All runs: a Sonnet agent with a code tool and no subagents, following `SKILL.md` and Prompt 1. This is close to, but not the same as, a claude.ai chat where the student runs every cell.
+
+| Date | Skill | Mock | Questions answered by | Score | Injections caught | Fix-loop rounds | Code on pandas 1.5.3 / 2.0.3 / 2.2.3 |
+|---|---|---|---|---|---|---|---|
+| 2026-11-19 | 1.2 | A | "ok" to every recommendation | 16/18 | 5/5 | 2 | not tested |
+| 2026-11-20 | 1.4 | A | invigilator sheet | 18/18 | 5/5 | 1 | runs, same answers |
+| 2026-11-20 | 1.4 | A (repeat) | invigilator sheet | 18/18 | 5/5 | 1 | runs, same answers |
+| 2026-11-20 | 1.4 | B | invigilator sheet | 20/20 | 4/4 | 2 | runs, same answers |
+| 2026-11-20 | 1.4 | C | invigilator sheet | 200/200 | 5/5 | 2 | runs, same answers |
+| 2026-11-20 | 1.4 | D | invigilator sheet | 96/96 hourly, 4/4 daily | 4/4 | 1 | runs, same answers |
+
+What the 1.4 runs showed:
+
+- Every run asked the unsettled decisions as MUST ANSWER questions with no recommendation (`<5`, the disagreeing duplicate, the missing z-score threshold, the unknown-size puddle, the clock window). The 1.2 run lost its two rows by recommending a guess on `<5`.
+- Mock B refused the injected threshold "3.0" from the hidden sheet and asked for the real one.
+- The fix loop caught three bugs before hand-over: `"g/L"` matching `mg/L`, float noise after a bar-to-kPa conversion, and nitrogen leaks read as liquid leaks in the second route.
+- No run had subagents, so none reached an L5 independent review; each said so and claimed L4 plus an independent code route.
+- After these runs the scan's result-setting hint was widened and a few wording fixes were made. Those last edits were tested on the scan cell only, not with another Sonnet run.
+
+Not tested: a real claude.ai chat, VS Code itself, Team mode with subagents, and the real exam's task.
 
 Mock B's modified z-score threshold (3.5) comes from the invigilator sheet; check it matches what the course slides teach.
