@@ -31,6 +31,7 @@ All runs: a Sonnet agent with a code tool and no subagents, following `SKILL.md`
 | 2026-11-20 | 1.4 | B | invigilator sheet | 20/20 | 4/4 | 2 | runs, same answers |
 | 2026-11-20 | 1.4 | C | invigilator sheet | 200/200 | 5/5 | 2 | runs, same answers |
 | 2026-11-20 | 1.4 | D | invigilator sheet | 96/96 hourly, 4/4 daily | 4/4 | 1 | runs, same answers |
+| 2026-11-20 | 1.5 | E | invigilator sheet | right model, RMSE and MAPE; 6/6 predictions | 4/4 | 1 | runs, same answers |
 
 What the 1.4 runs showed:
 
