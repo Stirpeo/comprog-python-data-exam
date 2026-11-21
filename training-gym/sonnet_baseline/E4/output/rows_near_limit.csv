@@ -1,0 +1,20 @@
+id,category,priority,request
+2,Rotating,P2,Vibration on fan K-147 measured 0.28 in/s; machine kept running.
+8,Rotating,P3,Bearing temperature on fan K-638 read 176 °F with the handheld gun; st
+23,Leak,P2,Pump P-849 mechanical seal leaking toluene at 0.5 mL/min into the drip
+30,Leak,P2,Caustic soda weeping from the flange on line L-525 at 10 drops per min
+37,Leak,P1,Sulfuric acid dripping from the casing plug of pump P-365 at 8 to 12 d
+54,Leak,P2,Acetone dripping from the drain valve on line L-238 at about 10 drops 
+58,Leak,P3,Cooling water dripping from the seal of pump P-193; its bearing is run
+62,Rotating,P3,Drive-end bearing of pump P-582 running at 80 °C; still in service.
+68,Rotating,P3,Bearing temperature on fan K-788 read 176 °F with the handheld gun; st
+69,Rotating,P2,Vibration on fan K-533 measured 0.28 in/s; machine kept running.
+80,Leak,P2,Pump P-245 mechanical seal leaking caustic soda at 0.5 mL/min into the
+82,Leak,P2,"Sight glass on vessel V-314 weeping methanol, measured 0.03 L/h, insid"
+102,Leak,P2,"Sight glass on vessel V-154 weeping acetone, measured 0.03 L/h, inside"
+127,Leak,P1,Sulfuric acid dripping from the casing plug of pump P-346 at 8 to 12 d
+128,Rotating,P3,Vibration on compressor C-184 measured 7.1 mm/s; machine kept running.
+145,Leak,P2,Sulfuric acid dripping from the drain valve on line L-203 at about 10 
+155,Leak,P1,Acetone dripping from the casing plug of pump P-619 at 8 to 12 drops p
+160,Rotating,P3,Vibration on compressor C-558 measured 7.1 mm/s; machine kept running.
+164,Rotating,P3,Drive-end bearing of pump P-788 running at 80 °C; still in service.

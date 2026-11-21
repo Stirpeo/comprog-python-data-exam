@@ -1,0 +1,16 @@
+item,value
+rows_appended,1467
+rows_after_duplicates,1464
+longgap_rows,7
+stop_hours_mar,0
+stop_hours_apr,33
+trueoutlier_rows,5
+clean_rows,1419
+mean_sfc_mar,78.03
+mean_sfc_apr,80.51
+higher_month,Apr
+mean_cost_pipeline,776.18
+mean_cost_lng,1063.15
+longgap_lost_production,No
+r_tfw_sfc,-0.54
+related,Yes
