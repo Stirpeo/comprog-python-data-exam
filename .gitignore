@@ -2,3 +2,4 @@
 __pycache__/
 output/
 verify_*.csv
+!training-gym/sonnet_baseline/*/output/
