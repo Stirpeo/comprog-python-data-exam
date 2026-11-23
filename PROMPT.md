@@ -20,6 +20,8 @@ Together with the plan, the decisions checkpoint and the loop, the chat climbs t
 
 **Before the exam:** read this once, and decide where your handout text will come from (copy from the .docx, or attach it). Everything in `[square brackets]` is filled in during the exam.
 
+**No time to fill in Prompt 1?** From skill v1.8 you can attach every file and send only the task with the skill's name. Claude then drafts the Level 3 prompt from the handout; you fill the `[FILL]` slots, edit it and send it as your next message, and take the screenshot of that message. The draft shows in the chat as Claude's, so check with your teacher that this is accepted.
+
 **During the exam:** paste Prompt 1 as your first message with every file attached. Then follow the replies; use Prompts 2 to 5 at the stages named.
 
 ---
