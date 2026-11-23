@@ -13,7 +13,7 @@ Five timed practice tasks, one per task type in `SKILL.md`. Each has planted pro
 ## How to use one
 
 1. New chat with **Sonnet**, skill switched on, 45-minute timer.
-2. Attach everything in the mock's `files/` and send Prompt 1 from [`PROMPT.md`](../PROMPT.md).
+2. Attach everything in the mock's `files/` and send your own prompt (Role, Task, Context in tags, Format, Example, Constraints), or only the task so that the skill drafts the prompt for you to edit and send.
 3. Answer Claude's questions only from that mock's `INVIGILATOR.md`, and only what it asks.
 4. Score with `python check.py ...` (see the mock's README), then read `KEY.md` to see which traps were caught.
 
