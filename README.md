@@ -1,6 +1,6 @@
 # comprog-python-data-exam
 
-A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and NumPy in Jupyter or VS Code, on Excel/CSV plant data). Current version: **1.7**.
+A Claude skill for the final exam of Computer Programming for Chemical Engineers (pandas and NumPy in Jupyter or VS Code, on Excel/CSV plant data). Current version: **1.8**.
 
 In the exam chat the skill makes Claude:
 
@@ -11,7 +11,9 @@ In the exam chat the skill makes Claude:
 5. For a machine-learning task (week 5): follow the course's three steps (Model Selection & Tuning, Final Training, Deployment) with scikit-learn, with no test rows used for fitting, and flag new conditions outside the training range.
 6. Label every stage in the course's terms (Prompt Level L1 to L5, Agentic Level A1 to A4), since the chat itself is graded.
 
-The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Ready-made exam prompts (Level 5) are in [`PROMPT.md`](PROMPT.md). Five timed practice tasks, one per exam task type, with planted traps and answer keys are in [`mock-exams/`](mock-exams). Five more are in [`training-gym/`](training-gym), with a grader that shows which decision went the wrong way, sealed invigilator rulings, and the stress test of the scan cell.
+If you open with only the task and no prompt, Claude writes the prompt first: a Level 3 draft (Role, Task, Context in tags, Format, Example, Constraints, ending with the model-and-time line) with the handout's tasks word for word. You fill the `[FILL]` slots, edit it and send it as your own message; the work starts from that message. The draft is visible in the chat, so ask your teacher whether a model-drafted prompt earns the prompt marks.
+
+The skill file is [`comprog-python-data-exam/SKILL.md`](comprog-python-data-exam/SKILL.md). Five timed practice tasks, one per exam task type, with planted traps and answer keys are in [`mock-exams/`](mock-exams). Five more are in [`training-gym/`](training-gym), with a grader that shows which decision went the wrong way, sealed invigilator rulings, and the stress test of the scan cell.
 
 ## Install
 
@@ -26,7 +28,7 @@ Your copy does not update itself. When the version above changes, download again
 - [ ] You did one timed practice run with the exam model (Sonnet) on one of the [mock exams](mock-exams).
 - [ ] In VS Code on the exam laptop: the Python and Jupyter extensions are installed, a kernel is selected, and `import pandas, numpy, openpyxl, matplotlib, sklearn` runs in a cell.
 - [ ] You know the hand-in format (`.ipynb`, `.py` or both) and whether NumPy must be used.
-- [ ] Prompt 1 from `PROMPT.md` is ready to fill in.
+- [ ] Your own first prompt is ready (Role, Task, Context in tags, Format, Example, Constraints), or you have decided to give only the task and let the skill draft the prompt for you to edit and send.
 - [ ] In the exam: attach every file, name the skill in the first message, end it with "Tell me the model we are using and the current time.", and screenshot your prompt with Sonnet visible.
 - [ ] Answer the decision questions with reasons; ask the invigilator about MUST ANSWER questions.
 - [ ] You know whether a review in a second chat is allowed, and how many chat links you hand in.
@@ -39,10 +41,12 @@ Your copy does not update itself. When the version above changes, download again
 - **Training-gym exams with Sonnet (v1.6):** five runs with a plain prompt, the questions answered from the rulings sheets and each notebook re-run from scratch, scored 153/153, 48/48, 13/15, 334/334 and 45/45, with all 20 planted instructions reported. The two lost cells came from a 3-hour gap offered as a Confirm item where the handout defines a short gap as 1 or 2 hours. v1.7 makes that kind of case MUST ANSWER; **this wording change has not been re-run with Sonnet yet.** The hand-ins are in `training-gym/sonnet_baseline/`.
 - **Mock exams with Sonnet (v1.4):** five runs with the questions answered from the invigilator sheets scored 18/18 (twice), 20/20, 200/200 and 96/96 + 4/4, with every planted injection caught (5, 5, 4, 5, 4). The code each run wrote also runs on the three older pandas versions with the same answers. Details are in [`mock-exams/README.md`](mock-exams/README.md).
 - **Scan (v1.5 and earlier):** planted Excel, Word and PowerPoint files (all caught, coloured headers not flagged) and real course files (no false alarms). The v1.7 stress test above replaces this.
+- **Prompt first (v1.8):** not run with Sonnet yet.
 - **Not tested:** a real claude.ai chat, VS Code itself, Team mode with subagents.
 
 ## Changelog
 
+- **1.8** (2026-11-23): Prompt first. When the student gives only the task, the first reply is a Level 3 prompt draft for the student to fill, edit and send; the draft's last two tasks ask for the decision questions, the fix loop and the independent reviewer, which are unchanged. The wrap-up says the prompt started as a model draft. `PROMPT.md` is removed: write your own prompt, or let the skill draft one.
 - **1.7** (2026-11-21): fixes from a stress test (see `training-gym/`).
   - Scan cell: now catches PowerPoint theme-white text, text boxes off the slide or under another shape, and prints every speaker note with the slide it belongs to (the old label was the notes file's number, not the slide's); Excel pale-yellow and legacy-colour white fonts, white on a white fill, squeezed rows and columns, page footers, data-validation messages and stray cells away from the table; Word white text set through a style, and document properties. Wording: "chatbot", "Sonnet", "GPT", "automated tool", "A.I.", "AI" typed against Thai letters, Thai "โมเดล", and orders with no AI word ("this overrides the handout", "skip the ..."). Fewer false alarms ("Prompt action", "Instruction manual", "Laboratory assistant", tags such as `AI-101`).
   - Questions: a case just outside a definition the handout gives (a 3-hour gap when a short gap is "1 or 2 hours", a rate given as a range, a material on neither list) is MUST ANSWER. "This changes no answer" needs the list of options that were compared; for a blank there are three (fill, leave blank and keep the row, leave blank and drop the row).
